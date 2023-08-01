@@ -1,11 +1,15 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] Text text;
+    [SerializeField] TextMeshProUGUI text;
     [SerializeField] bool maxScore;
-    // Update is called once per frame
+
+    private void Start()
+    {
+        if (maxScore) DisplayMaxScore();
+    }
     void Update()
     {
         Display();

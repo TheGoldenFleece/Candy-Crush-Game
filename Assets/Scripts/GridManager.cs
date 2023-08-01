@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GridManager : MonoBehaviour
 {
@@ -33,7 +32,7 @@ public class GridManager : MonoBehaviour
     //Generate Grid of Candies
     void CreateGrid()
     {
-        transform.position = new Vector2((range.x * distance) / 2 - distance / 2, range.y * distance / 2 - distance / 2) * -1;
+        transform.position = new Vector2(((range.x * distance) / 2 - distance / 2) * transform.localScale.x, (range.y * distance / 2 - distance / 2) * transform.localScale.y) * -1;
 
         Grid = new GameObject[range.x, range.y];
 
@@ -107,7 +106,6 @@ public class GridManager : MonoBehaviour
     }
 
     //Swap two candies
-    
     public void Swap(Vector2Int pos1, Vector2Int pos2)
     {
         IsSwaping = true;
@@ -134,7 +132,6 @@ public class GridManager : MonoBehaviour
             yield return StartCoroutine(MoveAll(cells));
 
             check = CheckMatches();
-            Debug.Log(check);
             yield return null;
 
         } while (check);
@@ -319,8 +316,6 @@ public class GridManager : MonoBehaviour
 
     IEnumerator MoveAll(List<EmptyCell> cells)
     {
-        Debug.Log("I`m in");
-
         float timer = 0;
         while (timer <= timeToMove)
         {
@@ -339,7 +334,6 @@ public class GridManager : MonoBehaviour
             cell.tile.transform.localPosition = new Vector2(cell.pos2.x, cell.pos2.y);
         }
 
-        Debug.Log("I`m out");
         yield break;
     }
 
