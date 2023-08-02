@@ -11,6 +11,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] float distance = 1.0f;
     [SerializeField] float timeToSwap = .5f;
     [SerializeField] float timeToMove = .25f;
+    [SerializeField] private Score score;
 
     public static int CountSlides;
     public static GridManager Instance;
@@ -175,7 +176,6 @@ public class GridManager : MonoBehaviour
     //Check Match3 of Grid candies
     bool CheckMatches()
     {
-        Debug.Log("CheckMatches start");
         HashSet<GameObject> matchedTiles = new HashSet<GameObject>();
 
         for (int i = 0; i < range.x; i++)
@@ -191,13 +191,13 @@ public class GridManager : MonoBehaviour
                 {
                     matchedTiles.UnionWith(horizontalMatches);
                     matchedTiles.Add(tile);
-                    GameManager.Score += 10;
+                    score.UpdateScore(10);
                 }
                 if (verticalMatches.Count >= 2)
                 {
                     matchedTiles.UnionWith(verticalMatches);
                     matchedTiles.Add(tile);
-                    GameManager.Score += 10;
+                    score.UpdateScore(10);
                 }
             }
         }
@@ -210,7 +210,6 @@ public class GridManager : MonoBehaviour
             Destroy(tile);
         }
 
-        Debug.Log("CheckMatches end");
         return matchedTiles.Count >= 2;
     }
 

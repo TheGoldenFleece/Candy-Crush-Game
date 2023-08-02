@@ -605,10 +605,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3d1663cacc0ae475282d43ac6852872b, type: 3}
   - {fileID: 21300000, guid: 145f4692710704394948250930032e09, type: 3}
   TilePrefab: {fileID: 2018815519368594985, guid: 0992f5f51943e9042b4889c57f7efab7, type: 3}
-  range: {x: 5, y: 5}
+  range: {x: 7, y: 7}
   distance: 1
   timeToSwap: 0.5
   timeToMove: 0.25
+  score: {fileID: 1088864084}
 --- !u!224 &562314253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -618,8 +619,8 @@ RectTransform:
   m_GameObject: {fileID: 562314250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1112,6 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d7b53b97d8d9468d9bc31fc8323bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 1088864084}
 --- !u!4 &1397590185
 Transform:
   m_ObjectHideFlags: 0

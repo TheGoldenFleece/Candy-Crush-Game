@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    public static int Score;
+    public static GameManager Instance { private set; get; }
+    [SerializeField] private Score score;
 
     private void Awake()
     {
@@ -14,11 +14,6 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-    }
-
-    private void Start()
-    {
-        Score = 0;
     }
 
     public void Restart()
@@ -35,10 +30,6 @@ public class GameManager : MonoBehaviour
 
     void Exit()
     {
-        int maxScore = PlayerPrefs.GetInt("Score", 0);
-        if (maxScore < Score)
-        {
-            PlayerPrefs.SetInt("Score", Score);
-        }
+        score.SaveMaxScore();
     }
 }
